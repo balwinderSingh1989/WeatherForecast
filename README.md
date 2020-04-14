@@ -36,7 +36,8 @@ app has module [core] that take contains aof  data, domain and use cases layer. 
 <li>AppId for openweather API is located within APPconstant.kt file. You can use your's if required.</li>
 
 
-App has 4 flavors UAT,SIT, PROD and MOCK.
+## APP Flavors
+flavors UAT,SIT, PROD and MOCK for demonstration.
 
 with mock you can run the app offline and app would display data using test data from datafactory.
 
