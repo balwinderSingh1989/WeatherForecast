@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion app.compileSdk
+    buildToolsVersion = app.buildTools
+
+    defaultConfig {
+
+        minSdkVersion app.minSdk
+        targetSdkVersion app.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility java.sourceCompatibility
+        targetCompatibility java.targetCompatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    dataBinding {
+        enabled = true
+
+
+    }
+    flavorDimensions 'app', 'environment'
+    dynamicFeatures = []
+
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    productFlavors {
+
+        weather {
+            dimension 'app'
+            applicationId packageId.weather
+            ext {
+                uat = endpoints.weatherUat
+                sit = endpoints.weatherSit
+                prod = endpoints.weatherProd
+                pilot = endpoints.weatherPilot
+                mock = endpoints.weatherMock
+                local = endpoints.uaeLocal
+
+            }
+        }
+
+        uat {
+            dimension 'environment'
+            applicationIdSuffix ".uat"
+        }
+
+        sit {
+            dimension 'environment'
+            applicationIdSuffix ".sit"
+        }
+
+        prod {
+            dimension 'environment'
+            applicationIdSuffix ".prod"
+        }
+
+        pilot {
+            dimension 'environment'
+            applicationIdSuffix ".pilot"
+        }
+
+        mock {
+            dimension 'environment'
+            applicationIdSuffix ".mock"
+        }
+
+
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def flavors = variant.productFlavors
+            def app = flavors[0]
+            def environment = flavors[1]
+            variant.buildConfigField "String", "END_POINT", "${app[environment.name]}"
+            //  variant.resValue "string", "app_name", "${app.name.toUpperCase()} ${environment.name.toUpperCase()}"
+            variant.resValue "string", "app_name", "Weather-${environment.name.toUpperCase()}"
+            outputFileName = "${app.name.toUpperCase()} Mobile-${environment.name.toUpperCase()}-${variant.versionName}.apk"
+        }
+    }
+
+
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    addDependencies(dependencies, appDependencies)
+    implementation project(':core')
+
+}

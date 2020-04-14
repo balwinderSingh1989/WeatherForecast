@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.weather.core.data.repository.forecastWeather.model.ItemHourly" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rootView"
+        android:layout_width="120dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layoutDirection="locale"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_medium">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@{item.itemColor}"
+            android:transitionName="@{String.format(@string/cardView, item.dayOftheWeek)}"
+            android:layout_weight="1"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/day_name_text_view"
+                    style="@style/TextViewInColoredCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{item.dayOftheWeek}"
+                    android:transitionName="@{String.format(@string/dayOfWeek, item.dayOftheWeek)}"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/weather_image_view"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:transitionName="@{String.format(@string/forecastIcon, item.dayOftheWeek)}"
+                    app:srcCompat="@{item.weatherIcon}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/temp_text_view"
+                    style="@style/TextViewInColoredCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layoutDirection="ltr"
+                    android:transitionName="@{String.format(@string/temp, item.dayOftheWeek)}"
+                    android:text='@{String.format("%.0f°", item.main.temp)}'
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutTempMaxMin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:transitionName="@{String.format(@string/tempMaxMin, item.dayOftheWeek)}"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/IconInColoredCard"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:gravity="center"
+                            app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/min_temp_text_view"
+                            style="@style/SubTextViewInColoredCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layoutDirection="ltr"
+                            android:text='@{String.format("%.0f°", item.main.tempMin)}' />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/IconInColoredCard"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:gravity="center"
+                            app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/max_temp_text_view"
+                            style="@style/TextViewInColoredCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layoutDirection="ltr"
+                            android:text='@{String.format("%.0f°", item.main.tempMax)}' />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/shadow_view"
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+    </LinearLayout>
+</layout>

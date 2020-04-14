@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation.xml"
+    app:startDestination="@id/currentWeatherFragment">
+
+    <fragment
+        android:id="@+id/currentWeatherFragment"
+        android:name="com.balwinder.weatherforecast.ui.currentweatherfragment.CurrentWeatherFragment"
+        android:label="CurrentWeatherFragment" />
+
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.balwinder.weatherforecast.ui.forecast.FiveDaysForecastFragment"
+        android:label="ForecastFragment">
+        <action
+            android:id="@+id/action_forecastFragment_to_hourlyForecastFragment"
+            app:destination="@id/hourlyForecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hourlyForecastFragment"
+        android:name="com.balwinder.weatherforecast.ui.hourlyForecast.HourlyForecastFragment"
+        android:label="HourlyForecastFragment">
+        <argument
+            android:name="listHours"
+            app:argType="com.weather.core.data.repository.forecastWeather.model.ItemHourly[]" />
+
+        <action
+            android:id="@+id/action_hourlyForecastFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.weather.core.data.repository.forecastWeather.model.ItemHourly" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rootView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewHourOfDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text='@{item.hourOfDay}'
+
+                android:textSize="14sp"
+                tools:text="14:00" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewForecastIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_below="@id/textViewHourOfDay"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:tint="@{item.getHourColor()}"
+                app:srcCompat="@{item.weatherIcon}" />
+
+            <TextView
+                android:id="@+id/textViewTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageViewForecastIcon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/mainTextColor"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:text='@{String.format("%.0f°", item.main.temp)}' />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

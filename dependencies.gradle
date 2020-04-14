@@ -1,0 +1,266 @@
+ ext.app = [
+        minSdk    : 21,
+        targetSdk : 28,
+        compileSdk: 28,
+        buildTools: '28.0.3'
+]
+
+ext.versionDependency = [
+        rchComp       : '1.1.1',
+        supportLibrary: '28.0.3',
+        rxJava        : '2.2.5'
+]
+
+ext.packageId = [
+        weather: 'com.balwinder.weatherforecast',
+]
+
+def versions = [
+        gradlePlugin     : '3.5.1',
+        multidex         : '1.0.3',
+        kotlin           : '1.3.31',
+        supportLibrary   : versionDependency.supportLibrary,
+        archComp         : versionDependency.supportLibrary,
+        rxJava           : versionDependency.rxJava,
+        constraintLayout : '1.1.3',
+
+        dataBinding      : '3.1.0-alpha06',
+
+        navigation       : '2.2.0',
+
+        rxKotlin         : '2.3.0',
+
+        rxAndroid        : '2.1.0',
+
+        dagger           : '2.22.1',
+
+        retrofit         : '2.5.0',
+        okHttp           : '3.13.1',
+        gson             : '2.8.5',
+
+        javaxInject      : '1',
+
+        googleServices   : '15.0.1',
+
+        jetifier         : '1.0.0-beta04',
+
+        glide            : '4.9.0',
+
+
+        //Test
+        robolectric      : '3.4.2',
+        junit            : '4.12',
+        assertj          : '3.8.0',
+        mockitoKotlin    : '1.5.0',
+        mockito        :  '2.8.47',
+        espresso         : '3.0.1',
+        testRunner       : '1.0.1',
+
+        //lifecycle
+        lifecycle        : '2.0.0',
+
+        timber           : '4.7.1',
+
+        materialComponent: '1.1.0-alpha07',
+
+        permissionLibrary: '1.1.0',
+
+        viewPager        : '1.0.0-beta02'
+
+]
+
+ext.java = [
+        sourceCompatibility: JavaVersion.VERSION_1_8,
+        targetCompatibility: JavaVersion.VERSION_1_8
+]
+
+ext.endpoints = [
+
+        weatherUat  : '"http://api.openweathermap.org/data/2.5/"',
+        weatherSit  : '"http://api.openweathermap.org/data/2.5/"',
+        weatherProd : '"http://api.openweathermap.org/data/2.5/"',
+        weatherPilot: '"http://api.openweathermap.org/data/2.5/"',
+        weatherMock : '"http://10.114.17.178:8080/"'
+]
+
+def libraries = [
+        androidGradlePlugin    : "com.android.tools.build:gradle:$versions.gradlePlugin",
+        // multidex                : "com.android.support:multidex:$versions.multidex",
+        kotlinGradlePlugin     : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+        kotlinReflect          : "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin",
+        // Support Libraries
+        appCompatV7            : "androidx.appcompat:appcompat:1.0.2",
+        constraintLayout       : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        // design                  : "com.android.support:design:$versions.supportLibrary",
+        dataBinding            : "com.android.databinding:compiler:$versions.dataBinding",
+        rxJava                 : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+        rxKotlin               : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+        rxAndroid              : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        jetifier               : "com.android.tools.build.jetifier:jetifier-processor:$versions.jetifier",
+        googleServices          : "com.google.android.gms:play-services-location:$versions.googleServices",
+        //===================DAGGER
+        dagger                 : "com.google.dagger:dagger:$versions.dagger",
+        daggerSupport          : "com.google.dagger:dagger-android-support:$versions.dagger",
+        daggerCompiler         : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerProcessor        : "com.google.dagger:dagger-android-processor:$versions.dagger",
+        //===========NAVIGATION
+        navigationFragment     : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navigationUi           : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+        navigationSafeArgs     : "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
+        //======Network Libraries
+        retrofit               : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitConverter      : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+        okHttp                 : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+        okHttpLogger           : "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+        gson                   : "com.google.code.gson:gson:$versions.gson",
+        cookieHandler          : "com.squareup.okhttp3:okhttp-urlconnection:3.8.1",
+
+
+        javaxInject            : "javax.inject:javax.inject:$versions.javaxInject",
+        androidAnnotations     : "com.android.support:support-annotations:$versions.supportLibrary",
+        //=====Glide
+        glide                  : "com.github.bumptech.glide:glide:$versions.glide",
+        glideProcessor         : "com.github.bumptech.glide:compiler:$versions.glide",
+
+
+        materialDialogCore     : "com.afollestad.material-dialogs:core:$versions.materialDialog",
+        materialDialogLifeCycle: "com.afollestad.material-dialogs:lifecycle:3.1.0",
+
+        assertj                : "org.assertj:assertj-core:$versions.assertj",
+        junit                  : "junit:junit:$versions.junit",
+        junitKotlin            : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+        mockitoKotlin          : "com.nhaarman:mockito-kotlin:$versions.mockitoKotlin",
+        mockito                : "org.mockito:mockito-inline:$versions.mockito",
+
+        lifecycleExtension     : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
+        lifecycleProcessor     : "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle",
+
+        timber                 : "com.jakewharton.timber:timber:$versions.timber",
+
+        materialComponent      : "com.google.android.material:material:$versions.materialComponent",
+        viewPager              : "androidx.viewpager2:viewpager2:$versions.viewPager",
+        timber                 : "com.jakewharton.timber:timber:$versions.timber",
+
+        permissionLibrary      : "com.github.florent37:runtime-permission:$versions.permissionLibrary"
+
+]
+
+static def addDependency(config, dependency) {
+    [configuration: config, dependency: dependency]
+}
+
+static def addDependency(config, dependency, options) {
+    [configuration: config, dependency: dependency, options: options]
+}
+
+ext.addDependencies = {
+    DependencyHandler handler, dependencies ->
+        dependencies.each {
+            if (it.options != null) {
+                handler.add(it.configuration, it.dependency, it.options)
+            } else {
+                handler.add(it.configuration, it.dependency)
+            }
+        }
+}
+
+
+ext.appDependencies = [
+
+        addDependency('implementation', libraries.kotlin),
+        addDependency('implementation', libraries.rxKotlin),
+        addDependency('implementation', libraries.rxAndroid),
+
+
+        addDependency('implementation', libraries.appCompatV7),
+        addDependency('implementation', libraries.constraintLayout),
+
+
+        addDependency('implementation', libraries.dagger),
+        addDependency('implementation', libraries.daggerSupport),
+        addDependency('kapt', libraries.daggerCompiler),
+        addDependency('kapt', libraries.daggerProcessor),
+
+
+        addDependency('implementation', libraries.navigationFragment),
+        addDependency('implementation', libraries.navigationUi),
+
+        addDependency('implementation', libraries.gson),
+
+        //lifecycle
+        addDependency('implementation', libraries.lifecycleExtension),
+        addDependency('kapt', libraries.lifecycleProcessor),
+
+        // material components
+        addDependency('implementation', libraries.materialComponent),
+
+
+        addDependency('implementation', libraries.retrofit),
+        addDependency('implementation', libraries.retrofitAdapter),
+        addDependency('implementation', libraries.retrofitConverter),
+
+        addDependency('implementation', libraries.okHttp),
+        addDependency('implementation', libraries.okHttpLogger),
+        addDependency('implementation', libraries.gson),
+        addDependency('implementation', libraries.cookieHandler),
+        addDependency('implementation', libraries.timber),
+        addDependency('implementation', libraries.permissionLibrary),
+        addDependency('implementation', libraries.googleServices),
+
+        //test
+        addDependency('testImplementation', libraries.junit),
+        addDependency('testImplementation', libraries.junitKotlin),
+        addDependency('testImplementation', libraries.mockito),
+        addDependency('testImplementation', libraries.mockitoKotlin)
+
+]
+
+
+ext.coreDependencies = [
+        addDependency('implementation', libraries.kotlin),
+        addDependency('implementation', libraries.rxKotlin),
+        addDependency('implementation', libraries.rxAndroid),
+
+        addDependency('implementation', libraries.javaxInject),
+
+        addDependency('implementation', libraries.retrofit),
+        addDependency('implementation', libraries.retrofitAdapter),
+        addDependency('implementation', libraries.retrofitConverter),
+
+        addDependency('implementation', libraries.okHttp),
+        addDependency('implementation', libraries.okHttpLogger),
+
+        addDependency('implementation', libraries.gson),
+
+        addDependency('implementation', libraries.dagger),
+        // addDependency('implementation', libraries.daggerSupport),
+        addDependency('kapt', libraries.daggerCompiler),
+        addDependency('kapt', libraries.daggerProcessor),
+
+        addDependency('kapt', libraries.dataBinding),
+        addDependency('implementation', libraries.timber),
+        addDependency('implementation', libraries.permissionLibrary),
+
+        //test
+        addDependency('testImplementation', libraries.junit),
+        addDependency('testImplementation', libraries.junitKotlin),
+        addDependency('testImplementation', libraries.mockito),
+        addDependency('testImplementation', libraries.mockitoKotlin)
+
+]
+
+
+
+
+
+ext.gradlePlugins = [
+        android           : libraries.androidGradlePlugin,
+        kotlin            : libraries.kotlinGradlePlugin,
+        jetifier          : libraries.jetifier,
+        navigationSafeArgs: libraries.navigationSafeArgs
+]
+
+
+
