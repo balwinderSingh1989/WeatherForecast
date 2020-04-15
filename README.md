@@ -46,3 +46,7 @@ flavors UAT,SIT, PROD and MOCK for demonstration.
 
 with mock you can run the app offline and app would display data using test data from datafactory.
 
+
+## In Progess
+<li>Setting screen to Update APP-ID and change language and units</li>
+<li>Writing Junit Test cases</li>
