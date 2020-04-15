@@ -1,8 +1,12 @@
 # WeatherForecast
 Weather App to fetch current and 5 days / 3 hours data from https://openweathermap.org/appid
-<a href="https://github.com/balwinderSingh1989/WeatherForecast"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome" /></a>
+<p><img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/currentWeather.png" width="250" height="450"/><img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/hoursData.png" width="250" height="450"/>
 
-![appicon](https://user-images.githubusercontent.com/22769589/68296145-f7305d80-00a4-11ea-9cbe-24b18222bfa9.png)
+<img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/searchCities.png" width="250" height="450"/>
+
+</p>
+
+
 
 WeatherForecast is a an android app , which uses  APIs to fetch 5 day / 3 hour forecast weather data from the [OpenWeatherMap](https://openweathermap.org/forecast5) 
 App has been developed using latest tech stack available at android as on 14-April-2020.
@@ -12,6 +16,7 @@ App has been developed using latest tech stack available at android as on 14-Apr
 <li><a href="https://developer.android.com/topic/libraries/architecture/navigation/">Navigation</a></li>
 <li><a href="https://developer.android.com/training/data-storage/shared-preferences">Shared Preferences</a></li>
 <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel</a></li>
+<li><a href="https://developer.android.com/training/transitions/start-activity">Shared Transition</a></li>
 <li><a href="https://developer.android.com/topic/libraries/architecture/livedata">LiveData</a></li>
 <li><a href="https://developer.android.com/topic/libraries/data-binding">Data Binding</a></li>
 <li><a href="https://github.com/ReactiveX/RxJava">RxJava</a></li>
