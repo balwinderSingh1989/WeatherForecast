@@ -1,5 +1,13 @@
 # WeatherForecast
 Weather App to fetch current and 5 days / 3 hours data from https://openweathermap.org/appid
+
+
+## App Walk-through
+
+https://www.youtube.com/watch?v=JRDAzqniCNE
+
+
+
 <p><img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/currentWeather.png" width="250" height="450"/><img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/hoursData.png" width="250" height="450"/>
 
 <img src="https://github.com/balwinderSingh1989/WeatherForecast/blob/master/screenshots/searchCities.png" width="250" height="450"/>
