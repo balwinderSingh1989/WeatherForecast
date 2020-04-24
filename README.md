@@ -4,7 +4,7 @@ Weather App to fetch current and 5 days / 3 hours data from https://openweatherm
 
 ## App Walk-through
 
-https://www.youtube.com/watch?v=JRDAzqniCNE
+Video : https://www.youtube.com/watch?v=JRDAzqniCNE
 
 
 
